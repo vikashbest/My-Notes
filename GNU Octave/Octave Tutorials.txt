@@ -1,0 +1,801 @@
+Octave Tutorials
+==========================================
+Simple arithmetic operations like:-
+
+>>	4+5
+Output:- ans =  9
+
+>> 8/2
+Output:- ans = 4
+
+>> 4-9
+ans = -5
+
+>>	2^3
+ans = 8
+Note: Operator used for commenting: '%'
+
+>>	1== 2  %false
+ans = 0
+
+>>	3==3
+ans = 1
+
+>> 2 ~= 3   % Here ~= means not equal
+ans = 1
+
+>>	1 && 0		% AND (logical operation)
+ans = 0
+
+>>	1 || 0		% OR operation
+ans = 1
+
+>>	xor(1,0)		% XOR operation
+ans = 1
+
+>>	a = 4;
+>>	a
+a = 4
+
+>>	a = 3
+a = 3				{Note, without semicolon it shows the result}
+
+>> b = 'Vikash';
+>>	b
+b = Vikash
+
+>>	c = (5>=3);
+>>	c
+c = 1
+
+>>	a = pi;
+>>	a
+a = 3.1416
+
+>>	disp(a)									
+ 3.1416									{disp() is used to display}
+
+>>	disp(sprintf('2 decimal: %0.2f',a))					{Here, sprintf() is used to print}
+2 decimal: 3.14
+
+>>	format long
+>>	a
+a =  3.141592653589793
+
+>>	format short 					{Note, short is the default one}
+>> 	a
+a = 3.1416
+
+
+Now let's look at vectors
+
+>>	A = [1 2 3; 4 5 6; 7 8 9]
+A = 
+	1	2	3
+	4	5	6
+	7	8	9
+
+>>	v = [1 2 3]
+v =
+
+   1   2   3					{It's a 1x3 matrix i.e. Row Vector}
+
+>>	v = [1; 2; 3]
+v =
+
+   1
+   2						{It's a 3x1 matrix i.e. Column vector}
+   3
+
+>>	v = 1:5					{Staring from 1 goto 5, It's a 1x5 matrix}
+v =
+
+   1   2   3   4   5
+
+>>	v = 1:0.2:3 						{Staring from 1.0 increasing by 0.2 and ending at 3.0}
+v = 								{It's a 1x11 matrix i.e.Row vector}
+
+ Columns 1 through 8:
+
+    1.0000    1.2000    1.4000    1.6000    1.8000    2.0000    2.2000    2.4000
+
+ Columns 9 through 11:
+
+    2.6000    2.8000    3.0000
+
+>>	c = 2*ones(3)
+c =
+
+   2   2   2					{To create a 3x3 matrix of all 2's}
+   2   2   2
+   2   2   2
+
+>>	c = ones(3,4)
+c =
+
+   1   1   1   1					{This will create a 3x4 matrix of all 1's}
+   1   1   1   1					{It's shortcut instead of using [1 1 1 1; 1 1 1 1; 1 1 1 1]}
+   1   1   1   1
+
+>>	c = 7*ones(3,4)
+c =
+
+   7   7   7   7
+   7   7   7   7					{This will create a 3x4 matrix of all 7's}
+   7   7   7   7
+
+>>	w = zeros(1,3) 					{To create a 1x3 row matrix of all 0's}
+w =
+
+   0   0   0
+
+>>	w = rand(1,3)
+w =											{To create a 1x3 matrix of random numbers between 0 and 1}
+
+   0.89445   0.85186   0.35519
+
+>>	w = randn(1,3)
+w =										{This will generate 1x3 matrix of random nos. from gaussian distribution}
+
+   1.74759   0.47900  -1.07380
+
+>>	w = -5 + sqrt(36)*(randn(1,1000))      {This will create 1x100 matrix according to the required operation}
+
+>>	hist(w)				{This function will show graphical histogram of w}
+
+>>	hist(w,50)			{This will show graphical histogram of w with bars getting thin proportional to 50 or any number
+						 i.e. more clear histogram details}
+
+>>	I = eye(4)
+I =
+										{eye(n) function is used to create a nxn identity matrix }
+Diagonal Matrix
+
+   1   0   0   0
+   0   1   0   0
+   0   0   1   0
+   0   0   0   1
+
+>>	help eye					{use help to see documentation of any function,i.e. help name, e.g. help randn}
+
+================================================================
+
+>>	A = [1 2;3 4;5 6]
+A =
+
+   1   2
+   3   4
+   5   6
+
+>>	size(A)
+ans =
+
+   3   2					{It's a 1x2 matrix showing no. of rows and no. of columns}
+	
+>>	size(A,1)
+ans =  3  					{To get the first column value i.e. rows here}
+>>	size(A,2)
+ans =  2					{To get the second column value i.e. columns here}
+
+>>	v = [1;2;3;4;5]
+v =
+
+   1
+   2
+   3
+   4
+   5
+>> length(v)					{length(v) returns the largest dimension of v i.e. 5 here}
+ans =  5
+>> length(A)					{Note here A is 3x2 matrix. length() returns the largest dimension i.e. 3 here}
+ans =  3
+
+>>	pwd								{For printing working directory}
+ans = C:\Users\Vikash Kumar\Octave
+
+>>	load featureX.dat   				{To load a file, e.g. load filename.extension}
+
+>>	who 					{To show all the variables}
+
+>>	whos					{To show all variables with their details like size, bytes, data type}
+
+>>	clear variable_name			{To delete a variable}
+ 
+Suppose priceY is a 47x1 vector
+>>	v = priceY(1:10)
+
+result:- It will display first 10 elements i.e. 10x1 vector 
+
+>>	save hello.mat v 						{It will save the contents of v in a file hello.mat}
+
+>>	save hello.txt v -ascii					{It will save as text file (ASCII)}
+
+>> A
+A =
+
+   1   2
+   3   4
+   5   6
+
+>> A(3,2) 							{Returns the A_32 value i.e.row= 3 column= 2 }
+ans =  6
+
+>> A(2,:)							{Here ":" means every element along that row/column}
+ans =
+
+   3   4
+
+>> A(:,2)
+ans =
+
+   2
+   4
+   6
+
+>> A
+A =
+
+   1   2
+   3   4
+   5   6
+
+>>	A([1 3],:)
+ans = 								{Getting all values from rows 1 and 3}
+
+   1   2
+   5   6
+
+>>	A(:,[2])=[10;12;14]
+A = 								{Updated the values of the column 2}
+
+    1   10
+    3   12
+    5   14
+
+>>	A = [A,[20; 30; 40]] 				{For adding another column ( to the RIGHT )}
+A =
+
+    1   10   20
+    3   12   30
+    5   14   40
+
+>> A(:) 							{Put all elements of A in single vector}
+ans =
+
+    1
+    3
+    5
+   10
+   12
+   14
+   20
+   30
+   40
+
+>>	A = [1 2; 3 4; 5 6]
+A =
+
+   1   2
+   3   4
+   5   6
+
+>>	B = [11 12; 13 14; 15 16]
+B =
+
+   11   12
+   13   14
+   15   16
+
+>>	C=[A B] 							{Concatenating matrix A and matrix B and storing in C}
+C =
+
+    1    2   11   12
+    3    4   13   14
+    5    6   15   16
+
+>>	size(C)
+ans =
+
+   3   4
+
+>>	C = [A; B] 						{Concatenating matrix A and matrix B one over other}
+C =
+
+    1    2
+    3    4
+    5    6
+   11   12
+   13   14
+   15   16
+
+>>	size(C)
+ans =
+
+   6   2
+
+Note : [A B] is same as [A , B]
+
+====================================================
+
+>>	A = [1 2; 3 4; 5 6]
+A =
+
+   1   2
+   3   4
+   5   6
+
+>>	B = [2 4; 4 6]
+B =
+
+   2   4
+   4   6
+
+>>	A * B 							{ Matrix multiplication }
+ans =
+
+   10   16
+   22   36
+   34   56
+
+>> A
+A =
+
+   1   2
+   3   4
+   5   6
+
+>> C = [2 3; 4 5; 6 7]
+C =
+
+   2   3
+   4   5
+   6   7
+
+>> A.*C 							{ Element wise multipication}
+ans =
+
+    2    6
+   12   20
+   30   42
+
+>>	A.^2 							{ Element wise squaring }
+ans =
+
+    1    4
+    9   16
+   25   36
+
+>> v = [1; 2; 3; 4]
+v =
+
+   1
+   2
+   3
+   4
+
+>> 1./v
+ans =
+
+   1.00000
+   0.50000
+   0.33333
+   0.25000
+
+>> 1./A
+ans =
+
+   1.00000   0.50000
+   0.33333   0.25000
+   0.20000   0.16667
+
+>>	log(v)
+ans =
+
+   0.00000
+   0.69315
+   1.09861
+   1.38629
+
+>>	exp(v)
+ans =
+
+    2.7183
+    7.3891
+   20.0855
+   54.5982
+
+>> t = [1;-2;-3;4]
+t =
+
+   1
+  -2
+  -3
+   4
+
+>> -t           			{It is same as -1*t}
+ans =
+
+  -1
+   2
+   3
+  -4
+
+>> abs(t)
+ans =
+
+   1
+   2
+   3
+   4
+
+>> v + ones(length(v),1)
+ans =
+
+   2						{ v = [1;2;3;4]  , this will increment every element by 1 }
+   3
+   4
+   5
+    	OR
+
+>> v + 1
+ans =
+
+   2
+   3
+   4
+   5
+
+>>	A' 					{Taking transpose}
+ans =
+
+   1   3   5
+   2   4   6
+
+>>	a = [1 4 23 5.8 -2]
+a =
+
+    1.0000    4.0000   23.0000    5.8000   -2.0000
+
+>> max(a)
+ans =  23
+
+>>	[val,ind] = max(a)
+val =  23 								{ To get maximum value with its index }
+ind =  3
+
+>> [val,ind] = min(a)
+val = -2 								{ To get minimum value with its index }
+ind =  5
+
+>>	A
+A =
+
+   1   2
+   3   4
+   5   6
+
+>>	max(A)
+ans =
+									{ For matrix it returns column-wise maximum }
+   5   6
+
+>> a < 5
+ans =
+									{ Here a = [1 4 23 5.8 -2]}
+  1  1  0  0  1						{ It does element-wise comparison }
+
+
+>>	find(a<5)						{ It returns the index of elements less than 5}
+ans =
+
+   1   2   5
+
+>>	A = magic(3)  					{ It returns magic square of 3x3}
+A =
+
+   8   1   6
+   3   5   7
+   4   9   2
+
+>> [r , c] = find(A>=6)
+r =
+
+   1
+   3
+   1
+   2
+
+c =
+
+   1
+   2 							{ Here A(1,1),A(3,2),A(1,3,A(2,3) are satisfying elements}
+   3
+   3
+
+>>	a = [1 2 4 6 8]
+a =
+
+   1   2   4   6   8
+
+>> sum(a) 						{sum() function is used to take the sum of all elements}
+ans =  21
+
+>> prod(a) 						{prod() function is used to do the product of all elements}
+ans =  384
+
+>> a = [1 3.4 4.6 7]
+a =
+
+   1.0000   3.4000   4.6000   7.0000
+
+>> floor(a)   							{floor() function is used to take floor  values. See for 3.4 and 4.6}
+ans =
+
+   1   3   4   7
+
+>> ceil(a) 							    {ceil function is used to take ceiling  values. See for 3.4 and 4.6}
+ans =
+
+   1   4   5   7
+
+>>	A= [A,[10;20;30]]
+A =
+
+    8    1    6   10
+    3    5    7   20
+    4    9    2   30
+
+>>	max(A,[],1) 						{It will find the value of maximum column-wise}
+ans =
+
+    8    9    7   30
+
+>>	max(A,[],2) 						{ It will find the value of maximum row-wise}
+ans =
+
+   10
+   20
+   30
+
+>>	B = magic(9)
+B =
+
+   47   58   69   80    1   12   23   34   45
+   57   68   79    9   11   22   33   44   46
+   67   78    8   10   21   32   43   54   56
+   77    7   18   20   31   42   53   55   66
+    6   17   19   30   41   52   63   65   76
+   16   27   29   40   51   62   64   75    5
+   26   28   39   50   61   72   74    4   15
+   36   38   49   60   71   73    3   14   25
+   37   48   59   70   81    2   13   24   35
+
+>> I = eye(9)
+I =
+
+Diagonal Matrix
+
+   1   0   0   0   0   0   0   0   0
+   0   1   0   0   0   0   0   0   0
+   0   0   1   0   0   0   0   0   0
+   0   0   0   1   0   0   0   0   0
+   0   0   0   0   1   0   0   0   0
+   0   0   0   0   0   1   0   0   0
+   0   0   0   0   0   0   1   0   0
+   0   0   0   0   0   0   0   1   0
+   0   0   0   0   0   0   0   0   1
+
+
+>> B.*I
+ans =
+
+   47    0    0    0    0    0    0    0    0
+    0   68    0    0    0    0    0    0    0
+    0    0    8    0    0    0    0    0    0
+    0    0    0   20    0    0    0    0    0
+    0    0    0    0   41    0    0    0    0
+    0    0    0    0    0   62    0    0    0
+    0    0    0    0    0    0   74    0    0
+    0    0    0    0    0    0    0   14    0
+    0    0    0    0    0    0    0    0   35
+
+
+>> sum(sum(B.*I))
+ans =  369
+
+>> I2 = flipud(eye(9))   						{ Using 'flipud' to flip-up-down the Identity matrix }
+I2 =
+
+Permutation Matrix
+
+   0   0   0   0   0   0   0   0   1
+   0   0   0   0   0   0   0   1   0
+   0   0   0   0   0   0   1   0   0
+   0   0   0   0   0   1   0   0   0
+   0   0   0   0   1   0   0   0   0   
+   0   0   0   1   0   0   0   0   0
+   0   0   1   0   0   0   0   0   0
+   0   1   0   0   0   0   0   0   0
+   1   0   0   0   0   0   0   0   0
+
+
+>>	A = magic(3)
+A =
+
+   8   1   6
+   3   5   7
+   4   9   2
+
+>>	temp = pinv(A)  						{ pinv(A) function is used to take pseudo invert of matrix A }
+temp =
+
+   0.147222  -0.144444   0.063889
+  -0.061111   0.022222   0.105556
+  -0.019444   0.188889  -0.102778
+
+>> temp*A
+ans =
+
+   1.00000   0.00000  -0.00000
+  -0.00000   1.00000   0.00000
+   0.00000   0.00000   1.00000
+
+Plotting a Graph:-
+==========================================
+
+>> t = [0:0.01:1];
+>> y1 = sin(2*pi*4*t);
+>> plot(t,y1);						{Plot of sin function will be generated}
+>> y2 = cos(2*pi*4*t);				{Plot of cos function will be generated}
+>> hold on; 						{To overlap two plots i.e. sin and cos functions}
+>> plot(t,y2,'r');
+>> xlabel('time')					{To label X-axis}
+>> ylabel('value')					{To label Y-axis}
+>> legend('sin','cos')				{To provide scale/info about plots }
+>> title('My Plot')					{Name of the Plot}
+
+ >> print -dpng 'myPlot.png' 		{To save plot as a file}
+ >> close 							{To close the Graph}
+
+>> figure(1); plot(t,y1);
+>> figure(2); plot(t,y2);   		{Two plots in two different figures }
+>> subplot(1,2,1);
+>> plot(t,y1);
+>> subplot(1,2,2); 					{Two plots in a single figure}
+>> plot(t,y2);
+
+>> axis([0.3 0.7 -1 1])				{To change axis of the plot}
+
+>> clf 								{To clear/delete the figure}
+
+An interesting thing using figure:-
+>> A = magic(10);
+
+>> imagesc(A) 									{Plot a figure corresponding to A}
+
+>> imagesc(A),colorbar,colormap gray			{This will also include colorbar for details of the figure and colormap for color design}
+
+Control Statements(for, while, if)
+=================================================
+
+>> for i = 1:10, 						
+>     disp(2^i);							{Not necessary to give space after for statement line, it's just for readability}
+> end;
+ 2
+ 4
+ 8
+ 16
+ 32
+ 64
+ 128
+ 256
+ 512
+ 1024
+
+>> for i = 1:10,
+>    v(i) = i^2;
+> end;
+>> v
+v =
+
+     1
+     4
+     9
+    16
+    25
+    36
+    49
+    64
+    81
+   100
+
+Now while loop
+
+>> i = 1;
+>> while i<=5,
+>    v(i) = 100; 							(considering previous values of v)
+>    i = i + 1;
+> end;
+>> v
+v =
+
+   100
+   100
+   100
+   100
+   100
+    36
+    49
+    64
+    81
+   100
+
+
+>> i = 1;
+>> while true,
+>    v(i) = 999;
+>    i = i+1;
+>    if i == 6,
+>        break; 							{Using break and if statement}
+>     end;
+> end;
+>> v
+v =
+
+   999
+   999
+   999
+   999
+   999
+    36
+    49
+    64
+    81
+   100
+
+>> v(1) = 3;
+>> v(1)
+ans =  3
+>> if v(1) == 1,
+> 	disp('Value is one');
+> elseif v(1) == 2,
+> 	disp('value is two');
+> elseif v(1) == 3,
+> 	disp('value is three');
+> else
+> 	disp('Value is neither of one ,two or three');
+> end;
+value is three
+
+To declare function, declare and define it in a file with '.m' extension. To open it use sublime else notepad sometimes may give error
+
+I have created a file in 'C:\Users\Vikash Kumar\Octave' which is " squareit.m "
+Inside the file contents are:-
+
+	function  y = squareit(x)
+	y = x^2;
+
+Now calling it from prompt you have to go to the above mentioned directory or add the path to Octave and it will run the function 
+regardless of your current directory. for adding path:-
+
+>> addpath('C:\Users\Vikash Kumar\Octave')
+
+>> squareit(7)
+ans =  49 								{Don't use ; at the end otherwise it will not show the result}
+
+>> x = squareit(4) 						{Or better use it this wway}
+x =  16
+
+Function returning multiple values:-
+
+File name is squareandcube.m and its content is:-
+
+	function [y1,y2] = squareandcube(x)
+
+	y1 = x^2;
+	y2 = x^3;
+
+>> [a,b] = squareandcube(6)
+a =  36
+b =  216
+
